@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<head>
+  <title>Add Printers</title>
+  <style>
+    *{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+    ul{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    width: 18%;
+    background-color:#4e73df;
+    height: 100%; /* Full height */
+    position: fixed; /* Make it stick, even on scroll */
+    overflow: auto; /* Enable scrolling if the sidenav has too much content */
+}
+li a {
+display: block;
+color: #000;
+padding: 8px 16px;
+text-decoration: none;
+
+}
+
+li a:hover:not(.active) {
+background-color: #555;
+color: white;
+}
+div.center{
+  position: absolute;
+  left:20%;
+  padding: 10px;
+  }
+.head{
+  font-weight:bolder;
+  font-size: x-large;
+}
+input[type=text] {
+  /*width: 30%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;*/
+  width: 30%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  resize: vertical;
+}
+button {
+  background-color: #04AA6D;
+  color: white;
+  margin-top:2px;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  position:relative;
+  left:40%;
+}
+.col-25{
+  float: left;
+  width: 25%;
+  margin-top: 6px;
+}
+.col-75{
+  float: left;
+  width: 75%;
+  margin-left:-45px;
+  margin-top: 6px;
+}
+</style>
+</head>
+<body>
+  <ul>
+    <li><a href="/printers">See/Delete Printers</a></li>
+    <li><a href="/add-printers">Add Printers</a></li>
+    <li><a href="/customers">See/Delete Customers</a></li>
+    <li><a href="/add-customer">Add Customer</a></li>
+  </ul>
+<div class="center">
+    <form action="/add-printers" method="POST">
+      <div class="head">Add-printer</div>
+        <div class="col-25">id:</div>
+        <div class="col-75"><input type="text" name="id"></div>
+        <div class="col-25">department:</div>
+        <div class="col-75"><input type="text" name="department"></div>
+        <div class="col-25">contact_person:</div>
+        <div class="col-75"><input type="text" name="contact_person"></div>
+        <div class="col-25">email:</div>
+        <div class="col-75"><input type="text" name="email"></div>
+        <div class="col-25">phone:</div>
+        <div class="col-75"><input type="text" name="phone"></div>
+        <div class="col-25">location:</div>
+        <div class="col-75"><input type="text" name="location"></div>
+        <div class="col-25">ip_address:</div>
+        <div class="col-75"><input type="text" name="ip_address"></div>
+        <div class="col-25">name:</div>
+        <div class="col-75"><input type="text" name="name"></div>
+        <div class="col-25">serial:</div>
+        <div class="col-75"><input type="text" name="serial"></div>
+        <div class="col-25">model:</div>
+        <div class="col-75"><input type="text" name="model"></div>
+        <div class="col-25">type:</div>
+        <div class="col-75"><input type="text" name="type"></div>
+      <button type="submit">Submit</button><br>
+    </form>
+    <%if(typeof(result)!=='undefined'){%>
+      <%- result %>
+      <% } %>
+</div>
+</body>

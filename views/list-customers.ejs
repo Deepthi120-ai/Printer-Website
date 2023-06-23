@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<style>
+    *{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+    ul{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    width: 18%;
+    background-color:#4e73df;
+    height: 100%; /* Full height */
+    position: fixed; /* Make it stick, even on scroll */
+    overflow: auto; /* Enable scrolling if the sidenav has too much content */
+}
+li a {
+display: block;
+color: #000;
+padding: 8px 16px;
+text-decoration: none;
+}
+
+li a.active {
+background-color: #04AA6D;
+color: white;
+}
+
+li a:hover:not(.active) {
+background-color: #555;
+color: white;
+}
+
+.head{
+    margin-top: 5px;
+    margin-bottom: 5px;
+    font-weight:bolder;
+    font-size: x-large;
+}
+</style>
+<title>
+</title>
+<body>
+    <ul>
+        <li><a href="/printers">See/Delete Printers</a></li>
+        <li><a href="/add-printers">Add Printers</a></li>
+        <li><a href="/customers">See/Delete Customers</a></li>
+        <li><a href="/add-customer">Add Customer</a></li>
+      </ul>
+    <div style="margin-left:18%;padding:20px 16px;height:1000px;">
+    <div class="head">Customers:</div>
+    <form action="/see-customers" method="GET">
+        <input list="exampleList1" name="exampleList1" placeholder="Find By">
+                <datalist id="exampleList1">
+                    <option value="all">all</option>
+                    <option value="id">id</option>
+                </datalist>
+        <input type="text" name="txt1">
+        <button type="submit">Search</button>
+    </form>
+        <br>
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>CU_Name</th>
+                <th>CU_Address</th>
+                <th>Contact_Name</th>
+                <th>Email</th>
+                <th>Phone</th>
+                <th>Segment</th>
+            </tr>
+        </thead>
+        <tbody>
+            <%if(typeof(c)!=='undefined'){%>
+            <%if (c.length) { %> <% for(let j of c){ %>
+            <tr>
+                <td class="ID"><%= j.id %></td>
+                <td><%= j.cu_name %></td>
+                <td><%= j.cu_address %></td>
+                <td><%= j.contact_name %></td>
+                <td><%= j.email %></td>
+                <td><%= j.phone %></td>
+                <td><%= j.Segment %></td>
+            </tr><% } %><% } %><% } %>
+        </tbody>
+    </table>
+    </div>
+</body>
